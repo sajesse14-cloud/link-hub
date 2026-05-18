@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ info.name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!-- Header Section -->
+      <div class="header">
+        <h1>{{ info.name }}</h1>
+        <p>{{ info.bio }}</p>
+      </div>
+
+      <!-- Links Section -->
+      <div class="links">
+        {% for link in info.links %}
+          <a href="{{ link.url }}" target="_blank">
+            {{ link.label }}
+          </a>
+        {% endfor %}
+      </div>
+      <!-- Contact Form -->
+      <div class="contact">
+        <h2>Contact Me</h2>
+        <input type="text" name="name" placeholder="Your Name" id="name">
+        <input type="email" name="email" placeholder="Your Email" id="email">
+        <textarea name="message" placeholder="Your message..." id="message" style="margin: 10px 0 10px 0;" ></textarea>
+        <button style="display: block; margin: 0 auto;"  onclick="submitForm()">Send Message</button>
+      </div>
+
+    </div>
+    <script>
+      async function submitForm() {
+        const data = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          message: document.getElementById('message').value
+        };
+
+        const response = await fetch('/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        alert(result.message);
+      }
+    </script>
+  </body>
+</html>
