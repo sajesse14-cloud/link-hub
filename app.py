@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify, session, redirect, u
 from werkzeug.security import check_password_hash, generate_password_hash
 
 app = Flask(__name__)
-app.secret_key = 'your-super-secret-key-change-this'
+app.secret_key = 'tUt9bn5but5cgmIXawbdxHCofkXre7uDKwp9yP1NW2Q='
 
 # Your credentials
 USERNAME = 'jesse'
