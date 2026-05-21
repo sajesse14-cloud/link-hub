@@ -1,0 +1,4 @@
+To push an updated run these, one at a time:
+git add .
+git commit -m "Add database for users and contact messages"
+git push

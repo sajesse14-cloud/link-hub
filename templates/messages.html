@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Messages</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+
+        <div class="header">
+            <h1>Messages</h1>
+            <p>All contact form submissions</p>
+        </div>
+
+        <div class="messages-list">
+            {% if messages %}
+                {% for msg in messages %}
+                <div class="message-card">
+                    <div class="message-header">
+                        <strong>{{ msg.name }}</strong>
+                        <span class="message-date">{{ msg.date.strftime('%b %d, %Y') }}</span>
+                    </div>
+                    <div class="message-email">{{ msg.email }}</div>
+                    <div class="message-body">{{ msg.message }}</div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p class="no-messages">No messages yet!</p>
+            {% endif %}
+        </div>
+
+        <div class="logout">
+            <a href="/">← Back to Home</a>
+            &nbsp;&nbsp;
+            <a href="/logout">Sign Out</a>
+        </div>
+
+    </div>
+</body>
+</html>

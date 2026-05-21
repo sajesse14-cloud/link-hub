@@ -139,3 +139,44 @@ body {
 .logout a:hover {
     color: #333;
 }
+
+.messages-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.message-card {
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: left;
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.message-date {
+    color: #999;
+    font-size: 0.85em;
+}
+
+.message-email {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+}
+
+.message-body {
+    color: #333;
+}
+
+.no-messages {
+    text-align: center;
+    color: #999;
+}
